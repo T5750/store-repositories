@@ -16,10 +16,11 @@ import util.HibernateUtil;
 
 @Controller
 public class GetUser {
-@Resource private HibernateUtil util;
-	
+	@Resource
+	private HibernateUtil util;
+
 	@SuppressWarnings("unchecked")
-	public String get() throws IOException{
+	public String get() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();

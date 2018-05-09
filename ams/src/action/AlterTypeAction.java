@@ -10,33 +10,35 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-
 import dao.TypeDao;
 import entity.Type;
 
-
-@Controller @Scope("prototype")
+@Controller
+@Scope("prototype")
 public class AlterTypeAction {
 	private Type type;
 	private int isIE;
-	@Resource private TypeDao td;
-	
-	public String alter() throws IOException{
+	@Resource
+	private TypeDao td;
+
+	public String alter() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		if(type.getTypename().equals("")){
+		if (type.getTypename().equals("")) {
 			out.print("empty");
 			return null;
 		}
 		String name, des;
-		if(isIE == 1){
-			name = new String(type.getTypename().getBytes("ISO-8859-1"),"gbk");
-			des = new String(type.getDescription().getBytes("ISO-8859-1"),"gbk");
-		}
-		else{
-			name = new String(type.getTypename().getBytes("ISO-8859-1"),"utf-8");
-			des = new String(type.getDescription().getBytes("ISO-8859-1"),"utf-8");
+		if (isIE == 1) {
+			name = new String(type.getTypename().getBytes("ISO-8859-1"), "gbk");
+			des = new String(type.getDescription().getBytes("ISO-8859-1"),
+					"gbk");
+		} else {
+			name = new String(type.getTypename().getBytes("ISO-8859-1"),
+					"utf-8");
+			des = new String(type.getDescription().getBytes("ISO-8859-1"),
+					"utf-8");
 		}
 		type.setTypename(name);
 		type.setDescription(des);
@@ -60,6 +62,4 @@ public class AlterTypeAction {
 	public void setIsIE(int isIE) {
 		this.isIE = isIE;
 	}
-	
-	
 }

@@ -2,7 +2,6 @@ package entity;
 
 import java.sql.Timestamp;
 
-
 public class Test {
 	private Integer id;
 	private Timestamp testdate;
@@ -31,5 +30,4 @@ public class Test {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

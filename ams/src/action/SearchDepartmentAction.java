@@ -15,32 +15,35 @@ import org.springframework.stereotype.Controller;
 
 import dao.DepartmentDao;
 
-@Controller @Scope("prototype")
+@Controller
+@Scope("prototype")
 public class SearchDepartmentAction {
 	private String value;
 	private int isIE;
-	@Resource private DepartmentDao dd;
-	
+	@Resource
+	private DepartmentDao dd;
+
 	@SuppressWarnings("unchecked")
-	public String search() throws IOException{
+	public String search() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		if(!value.equals("")||value!=null){
-			if(isIE == 1)
-				value = new String(value.getBytes("ISO-8859-1"),"gbk");
+		if (!value.equals("") || value != null) {
+			if (isIE == 1)
+				value = new String(value.getBytes("ISO-8859-1"), "gbk");
 			else
-				value = new String(value.getBytes("ISO-8859-1"),"utf-8");
+				value = new String(value.getBytes("ISO-8859-1"), "utf-8");
 		}
 		List list = dd.search(value);
 		JSONArray json = JSONArray.fromObject(list);
 		out.print(json.toString());
 		return null;
 	}
-	
+
 	public String getValue() {
 		return value;
 	}
+
 	public void setValue(String value) {
 		this.value = value;
 	}
@@ -52,5 +55,4 @@ public class SearchDepartmentAction {
 	public void setIsIE(int isIE) {
 		this.isIE = isIE;
 	}
-	
 }

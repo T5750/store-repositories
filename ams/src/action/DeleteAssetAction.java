@@ -12,12 +12,14 @@ import org.springframework.stereotype.Controller;
 
 import dao.AssetDao;
 
-@Controller @Scope("prototype")
+@Controller
+@Scope("prototype")
 public class DeleteAssetAction {
 	private Integer id;
-	@Resource private AssetDao ud;
-	
-	public String delete() throws IOException{
+	@Resource
+	private AssetDao ud;
+
+	public String delete() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
@@ -25,13 +27,12 @@ public class DeleteAssetAction {
 		out.print("success");
 		return null;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
 }

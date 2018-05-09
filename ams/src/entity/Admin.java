@@ -95,7 +95,7 @@ public class Admin {
 	public void setPermission(Integer permission) {
 		this.permission = permission;
 	}
-	
+
 	public Department getDepartment() {
 		return department;
 	}
@@ -111,5 +111,4 @@ public class Admin {
 	public void setLasttime(Timestamp lasttime) {
 		this.lasttime = lasttime;
 	}
-	
 }

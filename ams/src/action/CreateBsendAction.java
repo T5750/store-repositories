@@ -15,38 +15,39 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import dao.AssetDao;
-
-
 import entity.Bsend;
 
-@Controller @Scope("prototype")
+@Controller
+@Scope("prototype")
 public class CreateBsendAction {
 	private Bsend bsend;
 	private int id;
 	private int uid;
 	private String sxrq;
 	private int isIE;
-	@Resource private AssetDao ad;
-	
-	public String create() throws IOException, ParseException{
+	@Resource
+	private AssetDao ad;
+
+	public String create() throws IOException, ParseException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		if(sxrq.equals("") || uid == 0 || bsend.getCost().equals("")){
+		if (sxrq.equals("") || uid == 0 || bsend.getCost().equals("")) {
 			out.print("empty");
 			return null;
 		}
-		if(!sxrq.equals("")){
+		if (!sxrq.equals("")) {
 			Date date = DateFormat.getDateInstance().parse(sxrq);
 			bsend.setBsenddate(new Timestamp(date.getTime()));
 		}
-		if(!bsend.getDescription().equals("")){
+		if (!bsend.getDescription().equals("")) {
 			String des;
-			if(isIE == 1){
-				des = new String(bsend.getDescription().getBytes("ISO-8859-1"),"gbk");
-			}
-			else{
-				des = new String(bsend.getDescription().getBytes("ISO-8859-1"),"utf-8");
+			if (isIE == 1) {
+				des = new String(bsend.getDescription().getBytes("ISO-8859-1"),
+						"gbk");
+			} else {
+				des = new String(bsend.getDescription().getBytes("ISO-8859-1"),
+						"utf-8");
 			}
 			bsend.setDescription(des);
 		}
@@ -94,5 +95,4 @@ public class CreateBsendAction {
 	public void setIsIE(int isIE) {
 		this.isIE = isIE;
 	}
-	
 }

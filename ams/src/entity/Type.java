@@ -28,6 +28,4 @@ public class Type {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
 }

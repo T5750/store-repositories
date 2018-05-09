@@ -4,7 +4,7 @@ public class Department {
 	private Integer id;
 	private String dpname;
 	private String description;
-	
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -28,5 +28,4 @@ public class Department {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 }

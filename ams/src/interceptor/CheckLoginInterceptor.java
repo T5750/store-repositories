@@ -18,16 +18,14 @@ public class CheckLoginInterceptor extends AbstractInterceptor {
 	public String intercept(ActionInvocation ai) throws Exception {
 		Object action = ai.getAction();
 		if (action instanceof LoginAction) {
-            return ai.invoke();
-        }
-		Map session = ai.getInvocationContext().getSession();
-		Object admin = session.get("admin");
-		if(admin != null){
 			return ai.invoke();
 		}
-		else{
+		Map session = ai.getInvocationContext().getSession();
+		Object admin = session.get("admin");
+		if (admin != null) {
+			return ai.invoke();
+		} else {
 			return "login";
 		}
 	}
-	
 }

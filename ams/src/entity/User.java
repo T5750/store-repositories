@@ -55,5 +55,4 @@ public class User {
 	public void setMobilephone(String mobilephone) {
 		this.mobilephone = mobilephone;
 	}
-
 }

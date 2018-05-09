@@ -12,15 +12,15 @@ import net.sf.json.JSONArray;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Controller;
 
-
 import util.HibernateUtil;
 
 @Controller
 public class GetDepartment {
-	@Resource private HibernateUtil util;
-	
+	@Resource
+	private HibernateUtil util;
+
 	@SuppressWarnings("unchecked")
-	public String get() throws IOException{
+	public String get() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();

@@ -12,12 +12,14 @@ import org.springframework.stereotype.Controller;
 
 import dao.AssetDao;
 
-@Controller @Scope("prototype")
+@Controller
+@Scope("prototype")
 public class SxwbAction {
 	private int id;
-	@Resource private AssetDao ad;
-	
-	public String sxwb() throws IOException{
+	@Resource
+	private AssetDao ad;
+
+	public String sxwb() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
@@ -25,13 +27,12 @@ public class SxwbAction {
 		out.print("success");
 		return null;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 }

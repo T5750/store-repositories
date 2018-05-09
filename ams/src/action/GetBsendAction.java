@@ -14,13 +14,13 @@ import org.springframework.stereotype.Controller;
 
 import dao.AssetDao;
 
-
 @Controller
 public class GetBsendAction {
-	@Resource private AssetDao ad;
-	
+	@Resource
+	private AssetDao ad;
+
 	@SuppressWarnings("unchecked")
-	public String get() throws IOException{
+	public String get() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();

@@ -66,5 +66,4 @@ public class Bsend {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 }

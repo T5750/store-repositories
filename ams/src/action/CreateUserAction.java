@@ -15,51 +15,52 @@ import org.springframework.stereotype.Controller;
 import dao.UserDao;
 import entity.User;
 
-@Controller @Scope("prototype")
+@Controller
+@Scope("prototype")
 public class CreateUserAction {
 	private User user;
 	private String did;
 	private int isIE;
-	@Resource private UserDao ud;
-	
-	public String create() throws IOException{
+	@Resource
+	private UserDao ud;
+
+	public String create() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		if(user.getName().equals("")||user.getEmail().equals("")||did.equals("0")){
+		if (user.getName().equals("") || user.getEmail().equals("")
+				|| did.equals("0")) {
 			out.print("empty");
-	    	return null;
+			return null;
 		}
-		String regex = "\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";  
-	    Pattern   p   =   Pattern.compile(regex);  
-	    Matcher   m   =   p.matcher(user.getEmail());
-	    if(!m.find()){
-	    	out.print("email");
-	    	return null;
-	    }
-	    Pattern pattern = Pattern.compile("[0-9]*");
-        Matcher match = pattern.matcher(user.getWorkphone());
-        if(!match.matches()){
-        	out.print("wp");
-        	return null;
-        }
-        match = pattern.matcher(user.getMobilephone());
-        if(!match.matches()){
-        	out.print("mp");
-        	return null;
-        }
-        
-        String name;
-        if(isIE == 1){
-			name = new String(user.getName().getBytes("ISO-8859-1"),"gbk");
+		String regex = "\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(user.getEmail());
+		if (!m.find()) {
+			out.print("email");
+			return null;
 		}
-		else{
-			name = new String(user.getName().getBytes("ISO-8859-1"),"utf-8");
+		Pattern pattern = Pattern.compile("[0-9]*");
+		Matcher match = pattern.matcher(user.getWorkphone());
+		if (!match.matches()) {
+			out.print("wp");
+			return null;
+		}
+		match = pattern.matcher(user.getMobilephone());
+		if (!match.matches()) {
+			out.print("mp");
+			return null;
+		}
+		String name;
+		if (isIE == 1) {
+			name = new String(user.getName().getBytes("ISO-8859-1"), "gbk");
+		} else {
+			name = new String(user.getName().getBytes("ISO-8859-1"), "utf-8");
 		}
 		user.setName(name);
 		System.out.println(name);
-        ud.add(user, Integer.valueOf(did));
-        out.print("suc");
+		ud.add(user, Integer.valueOf(did));
+		out.print("suc");
 		return null;
 	}
 
@@ -78,6 +79,7 @@ public class CreateUserAction {
 	public void setDid(String did) {
 		this.did = did;
 	}
+
 	public int getIsIE() {
 		return isIE;
 	}
@@ -85,5 +87,4 @@ public class CreateUserAction {
 	public void setIsIE(int isIE) {
 		this.isIE = isIE;
 	}
-	
 }

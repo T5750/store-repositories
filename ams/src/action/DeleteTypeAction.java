@@ -12,12 +12,14 @@ import org.springframework.stereotype.Controller;
 
 import dao.TypeDao;
 
-@Controller @Scope("prototype")
+@Controller
+@Scope("prototype")
 public class DeleteTypeAction {
 	private Integer id;
-	@Resource private TypeDao td;
-	
-	public String delete() throws IOException{
+	@Resource
+	private TypeDao td;
+
+	public String delete() throws IOException {
 		ServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
@@ -25,10 +27,11 @@ public class DeleteTypeAction {
 		out.print("success");
 		return null;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
