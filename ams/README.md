@@ -5,6 +5,7 @@
 - [Struts Framework 2.1.8](http://struts.apache.org)
 - [Hibernate ORM 3.3.1.GA](http://hibernate.org/orm)
 - [Tomcat 7](http://tomcat.apache.org/)
+- [MySQL 5.6](http://www.mysql.com/)
 
 ## Quick Process
 * `ams.sql`
