@@ -6,7 +6,8 @@
 ## What's included
 ```
 store-repositories/
-└── [v0.1] ams
+├── [v0.1] ams
+└── [v0.2] payshop
 ```
 
 ## License

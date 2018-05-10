@@ -37,7 +37,9 @@
 ## Tips
 * Commits on 2017-12-06
 * Modified: `resources.properties`
-* Deleted files: WebContent/static/...
+* Deleted files:
+    - `WebContent/static/...`
+    - `WebContent/WEB-INF/lib/`
 
 ## Links
 - [payshop](https://gitee.com/JiaGou-XiaoGe/payshop)
