@@ -11,6 +11,7 @@
 	<modules>
 		<module>ams</module>
 		<module>payshop</module>
+		<module>backyard-plus</module>
 	</modules>
 
 	<properties>

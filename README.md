@@ -7,7 +7,8 @@
 ```
 store-repositories/
 ├── [v0.1] ams
-└── [v0.2] payshop
+├── [v0.2] payshop
+└── [v0.3] backyard-plus
 ```
 
 ## License
